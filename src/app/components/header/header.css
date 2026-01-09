@@ -3,6 +3,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--header);
+
+  background-color: var(--bg);
+  box-shadow: 0 3px 6px -2px var(--header-border);
 }
 
 .logo {
