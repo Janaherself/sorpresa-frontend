@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body.dark {
+  --bg: #0f172a;
+  --text: #e5e7eb;
+  --card: #1e293b;
+}
+
+body.light {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --card: #ffffff;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
