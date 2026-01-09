@@ -1,0 +1,12 @@
+<header>
+  <a routerLink="/" class="logo">Sorpresa</a>
+
+  <nav>
+    <a routerLink="/cart">
+      Cart
+      <span *ngIf="cartCount > 0" class="badge">{{ cartCount }}</span>
+    </a>
+
+    <button (click)="toggleTheme()">🌓</button>
+  </nav>
+</header>
