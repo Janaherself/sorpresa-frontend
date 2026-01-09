@@ -1,5 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private BASE_URL = 'https://sorpresa-api.onrender.com/api';
   private TOKEN_KEY = 'auth_token';
+  private platformId = inject(PLATFORM_ID);
 
   constructor(private http: HttpClient) {}
 
@@ -25,11 +27,16 @@ export class AuthService {
   }
 
   saveToken(token: string) {
-    localStorage.setItem(this.TOKEN_KEY, token);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem(this.TOKEN_KEY, token);
+    }
   }
 
   getToken(): string | null {
-    return localStorage.getItem(this.TOKEN_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      return localStorage.getItem(this.TOKEN_KEY);
+    }
+    return null;
   }
 
   isLoggedIn(): boolean {
@@ -37,6 +44,8 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem(this.TOKEN_KEY);
+    if (isPlatformBrowser(this.platformId)) {
+      localStorage.removeItem(this.TOKEN_KEY);
+    }
   }
 }
