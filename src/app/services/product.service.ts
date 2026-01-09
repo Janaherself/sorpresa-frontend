@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { APIResponse } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root',
@@ -11,10 +11,10 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<Product[]>(`${this.BASE_URL}/products`);
+    return this.http.get<APIResponse>(`${this.BASE_URL}/products`);
   }
 
   getProductById(id: string) {
-    return this.http.get<Product>(`${this.BASE_URL}/products/${id}`);
+    return this.http.get<APIResponse>(`${this.BASE_URL}/products/${id}`);
   }
 }
