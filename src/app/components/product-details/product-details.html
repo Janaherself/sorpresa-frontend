@@ -1,0 +1,15 @@
+<div *ngIf="product" class="details">
+  <img [src]="product.image_url" />
+
+  <div>
+    <h2>{{ product.name }}</h2>
+    <p class="price">{{ product.price | currency }}</p>
+    <p>{{ product.description }}</p>
+    <div class="toast" *ngIf="showMessage">
+      {{ message }}
+      <span class="icon">✓</span>
+    </div>
+
+    <button (click)="addToCart()">Add to Cart</button>
+  </div>
+</div>
