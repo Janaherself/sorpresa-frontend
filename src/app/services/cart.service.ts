@@ -25,7 +25,16 @@ export class CartService {
     this.cart$.next(this.cartItems);
   }
 
-  removeFromCart(productId: string) {
+  updateQuantity(productId: number, quantity: number) {
+    const item = this.cartItems.find(i => i.product.id === productId);
+    if (!item) return;
+
+    item.quantity = quantity;
+    this.cart$.next(this.cartItems);
+  }
+
+
+  removeFromCart(productId: number) {
     this.cartItems = this.cartItems.filter(
       item => item.product.id !== productId
     );
