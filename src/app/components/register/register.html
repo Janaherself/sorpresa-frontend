@@ -1,0 +1,16 @@
+<div class="auth-container">
+  <h2>Create Account</h2>
+
+  <p class="warning" *ngIf="message">{{ message }}</p>
+
+  <input placeholder="First name" [(ngModel)]="firstName" />
+  <input placeholder="Last name" [(ngModel)]="lastName" />
+  <input type="email" placeholder="Email" [(ngModel)]="email" />
+  <input type="password" placeholder="Password" [(ngModel)]="password" />
+
+  <button (click)="register()" [disabled]="!firstName || !lastName || !email || !password || loading">
+    {{ loading ? 'Creating account...' : 'Register' }}
+  </button>
+
+  <p class="switch-auth">Already have an account? <a routerLink="/login">Login here</a></p>
+</div>
