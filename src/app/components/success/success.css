@@ -1,0 +1,17 @@
+.center {
+    text-align: center;
+    margin-top: 1rem;
+    place-content: center;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
