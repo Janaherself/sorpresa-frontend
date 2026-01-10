@@ -1,0 +1,17 @@
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+img {
+  width: 90%;
+  max-height: 100;
+  object-fit: cover; 
+  border-radius: 12px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}

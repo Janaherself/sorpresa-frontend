@@ -1,0 +1,14 @@
+<div class="auth-container">
+  <h2>Log In</h2>
+
+  <p class="warning" *ngIf="message">{{ message }}</p>
+
+  <input type="email" placeholder="Email" [(ngModel)]="email" />
+  <input type="password" placeholder="Password" [(ngModel)]="password" />
+
+  <button (click)="login()" [disabled]="!email || !password || loading">
+    {{ loading ? 'Signing in...' : 'Login' }}
+  </button>
+
+  <p class="switch-auth">Don't have an account? <a routerLink="/register">Register here</a></p>
+</div>
