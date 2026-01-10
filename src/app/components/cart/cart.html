@@ -1,0 +1,136 @@
+<h2>Your Cart</h2>
+
+<p *ngIf="cartService.getItems().length === 0">
+  Too bad nothing is here yet. Go add some products!
+</p>
+
+<div
+  class="cart-item"
+  *ngFor="let item of cartService.getItems()"
+>
+
+<a [routerLink]="['/products', item.product.id]" class="product-link">
+  <img [src]="item.product.image_url" />
+</a>
+
+<a
+  [routerLink]="['/products', item.product.id]"
+  class="name product-link"
+>
+  {{ item.product.name }}
+</a>
+
+
+  <div class="quantity">
+    <button class="qty-btn" (click)="decrease(item)" [disabled]="item.quantity === 1">−</button>
+    <span class="qty-value">{{ item.quantity }}</span>
+    <button class="qty-btn" (click)="increase(item)">+</button>
+  </div>
+
+  <span class="price">
+    {{ item.product.price | currency:'ILS' }}
+  </span>
+
+  <button class="remove" (click)="remove(item.product.id)">
+    Remove
+  </button>
+</div>
+
+<h3>Total: {{ cartService.getTotal() | currency:'ILS' }}</h3>
+<hr />
+
+<form class="checkout-form" (ngSubmit)="placeOrder()">
+
+  <div class="form-field">
+    <label>First Name</label>
+    <input [(ngModel)]="customerFirstName" name="fn" />
+    <small *ngIf="customerFirstName && customerFirstName.length < 3">
+      Minimum 3 characters
+    </small>
+  </div>
+
+  <div class="form-field">
+    <label>Last Name</label>
+    <input [(ngModel)]="customerLastName" name="ln" />
+    <small *ngIf="customerLastName && customerLastName.length < 3">
+      Minimum 3 characters
+    </small>
+  </div>
+
+  <div class="form-field">
+    <label>Email</label>
+    <input [(ngModel)]="customerEmail" name="em" />
+    <small *ngIf="customerEmail && !customerEmail.includes('@')">
+      Enter a valid email
+    </small>
+  </div>
+
+  <div class="form-field">
+    <label>Delivery Address</label>
+    <input [(ngModel)]="customerAddress" name="ad" />
+    <small *ngIf="customerAddress && customerAddress.length < 10">
+      Minimum 10 characters
+    </small>
+  </div>
+
+  <div class="form-field">
+    <label>Payment Method</label>
+
+    <div class="radio-group">
+      <label>
+        <input
+          type="radio"
+          value="cash"
+          [(ngModel)]="paymentMethod"
+          name="pm"
+        />
+        Cash on Delivery
+      </label>
+
+      <label>
+        <input
+          type="radio"
+          value="card"
+          [(ngModel)]="paymentMethod"
+          name="pm"
+        />
+        Bank Card
+      </label>
+    </div>
+  </div>
+
+  <div *ngIf="paymentMethod === 'card'">
+    <div class="form-field">
+      <label>Card Number</label>
+      <input [(ngModel)]="cardNumber" name="cn" />
+      <small *ngIf="cardNumber && cardNumber.length != 16">
+        Card number should be 16 digits
+      </small>
+    </div>
+
+    <div class="form-field">
+      <label>Card Holder</label>
+      <input [(ngModel)]="cardHolder" name="ch" />
+      <small *ngIf="cardHolder && cardHolder.length < 3">
+        Enter a valid card holder name
+      </small>
+    </div>
+
+    <div class="form-field">
+      <label>CVV</label>
+      <input [(ngModel)]="cvv" maxlength="4" pattern="[0-9]*" inputmode="numeric" name="cvv" />
+      <small *ngIf="cvv && cvv.length < 3 || cvv.length > 4">
+        Enter a valid CVV
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="submit-btn"
+    [disabled]="isFormInvalid()"
+  >
+    Place Order
+  </button>
+
+</form>
