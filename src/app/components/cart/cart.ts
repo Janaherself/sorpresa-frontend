@@ -82,8 +82,6 @@ export class Cart {
 
     if (this.isFormInvalid()) return;
 
-    console.log('Cart items:', this.cartService.getItems());
-
     const order = {
       items: this.cartService.getItems().map(item => ({
         productId: item.product.id,
@@ -95,10 +93,6 @@ export class Cart {
       customerAddress: this.customerAddress,
       paymentMethod: this.paymentMethod,
     };
-
-    console.log('order items:', order.items);
-    console.log('order items:', order);
-
 
     this.orderService.placeOrder(order).subscribe(() => {
       this.cartService.clearCart();
