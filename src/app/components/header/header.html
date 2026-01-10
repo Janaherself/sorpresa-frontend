@@ -2,11 +2,25 @@
   <a routerLink="/" class="logo">Sorpresa</a>
 
   <nav>
-    <a routerLink="/cart">
-      Cart
-      <span *ngIf="cartCount > 0" class="badge">{{ cartCount }}</span>
+    
+    <ng-container *ngIf="!authService.isLoggedIn(); else loggedIn">
+      <a routerLink="/login" class="nav-link">Log in</a>
+      <a routerLink="/register" class="nav-link register">Register</a>
+    </ng-container>
+
+    <ng-template #loggedIn>
+      <button class="nav-link logout" (click)="logout()">
+        Logout
+      </button>
+    </ng-template>
+
+    <a routerLink="/cart" class="cart-link">
+      <span class="cart-icon"></span>
+      <span *ngIf="cartCount > 0" class="badge">
+        {{ cartCount }}
+      </span>
     </a>
 
-    <button (click)="toggleTheme()">🌓</button>
+    <button class="theme-btn" (click)="toggleTheme()">🌓</button>
   </nav>
 </header>
