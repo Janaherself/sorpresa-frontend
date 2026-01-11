@@ -4,37 +4,14 @@
   Too bad nothing is here yet. Go add some products!
 </p>
 
-<div
-  class="cart-item"
+<app-cart-item
   *ngFor="let item of cartService.getItems()"
->
+  [item]="item"
+  (increase)="increase(item)"
+  (decrease)="decrease(item)"
+  (remove)="remove($event)"
+></app-cart-item>
 
-<a [routerLink]="['/products', item.product.id]" class="product-link">
-  <img [src]="item.product.image_url" />
-</a>
-
-<a
-  [routerLink]="['/products', item.product.id]"
-  class="name product-link"
->
-  {{ item.product.name }}
-</a>
-
-
-  <div class="quantity">
-    <button class="qty-btn" (click)="decrease(item)" [disabled]="item.quantity === 1">−</button>
-    <span class="qty-value">{{ item.quantity }}</span>
-    <button class="qty-btn" (click)="increase(item)">+</button>
-  </div>
-
-  <span class="price">
-    {{ item.product.price | currency:'ILS' }}
-  </span>
-
-  <button class="remove" (click)="remove(item.product.id)">
-    Remove
-  </button>
-</div>
 
 <h3>Total: {{ cartService.getTotal() | currency:'ILS' }}</h3>
 <hr />
