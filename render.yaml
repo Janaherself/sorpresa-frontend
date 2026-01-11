@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: sorpresa-frontend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build:ssr
+    startCommand: node dist/sorpresa-frontend/server/main.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=512
