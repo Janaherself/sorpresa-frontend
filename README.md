@@ -100,18 +100,22 @@ src/</br>
 
 ## ⚙️ Setup & Installation
 
-### 1️⃣ Clone the repository
+- You can visit the site and start shopping immediately through **https://sorpresa-vz4i.onrender.com**!
+
+- Alternatively, you can run the app locally on your machine as follows:
+
+#### 1️⃣ Clone the repository
 ```bash
 git clone https://github.com/Janaherself/sorpresa-frontend.git
 cd sorpresa-frontend
 ```
 
-### 2️⃣ Install dependencies
+#### 2️⃣ Install dependencies
 ```bash
 npm install
 ```
 
-### 3️⃣ Run the app
+#### 3️⃣ Run the app
 ```
 ng serve --port 4200
 ```
@@ -120,7 +124,7 @@ The app will be available at:
 http://localhost:4200
 ```
 
-> _because I'm using a free hosting service, calling the api could take a minute or two - I advise you to be patient 😄_
+> _because I'm using a free hosting service to host the API, calling it could take a minute or two - I advise you to be patient 😄_
 
 </br>
 
