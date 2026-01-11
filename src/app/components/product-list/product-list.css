@@ -20,6 +20,17 @@ img {
   border-radius: 8px;
 }
 
+
+button {
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  height: auto;
+  width: auto;
+}
+
 .actions {
   display: flex;
   justify-content: space-between;
