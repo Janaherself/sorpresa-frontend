@@ -1,59 +1,190 @@
-# SorpresaFrontend
+# 🎁 Sorpresa — Angular Frontend
+_¡Porque toda sorpresa merece un frontend fluido.!_
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
+</br>
 
-## Development server
+---
 
-To start a local development server, run:
+**Sorpresa** is a modern, single-page mystery shop frontend built with **Angular**, designed to pair seamlessly with the Sorpresa backend API.  
+It delivers a smooth shopping experience with guest access, secure checkout, theme switching, and clean SPA navigation — all wrapped in a minimal, user-friendly UI.
 
+> _Sorpresa_ means **“surprise”** in spanish — and that’s exactly what every order is 😉
+
+</br>
+
+---
+
+## ✨ Features
+
+- 🛍️ **Product Listing & Details**
+  - Browse mystery products with images and descriptions
+  - Cloudinary-hosted images for fast delivery
+
+- 🛒 **Shopping Cart**
+  - Add / remove items
+  - Quantity control
+  - Real-time total calculation
+
+- 👤 **Guest Cart Access**
+  - Users can build a cart before logging in
+
+- 🔐 **JWT Authentication**
+  - Login & Register
+  - Token-based auth stored securely
+  - Auth interceptor for API requests
+
+- ✅ **Protected Checkout**
+  - Checkout is accessible only to authenticated users
+  - Order placement with validation
+
+- 🌗 **Dark / Light Mode**
+  - Theme toggle with persistent preference
+
+- 🚀 **SPA Navigation**
+  - Fast client-side routing
+
+</br>
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Angular 20.3** (Standalone components)
+- **TypeScript 5.9**
+- **RxJS 7.8**
+- **Angular Router**
+- **JWT Interceptor**
+- **CSS Variables** for theming
+
+### Backend (Linked Project)
+- Node.js + Express  
+- PostgreSQL  
+- JWT Authentication  
+
+🔗 **Backend Repo:**  
+👉 https://github.com/Janaherself/sorpresa
+
+🔗 **Live API:**  
+👉 https://sorpresa-api.onrender.com
+
+</br>
+
+---
+
+## 📦 Project Structure (Simplified)
+
+src/</br>
+├─ app/</br>
+│ ├─ components/</br>
+│ │ ├─ cart/</br>
+│ │ ├─ header/</br>
+│ │ ├─ login/</br>
+│ │ ├─ product-details/</br>
+│ │ ├─ product-list/</br>
+│ │ ├─ register/</br>
+│ │ └─ success/</br>
+│ ├─ interceptors/</br>
+│ ├─ models/</br>
+│ ├─ services/</br>
+│ ├─ app.config.ts</br>
+│ └─ app.routes.ts</br>
+├─ index.html</br>
+├─ main.ts</br>
+├─ server.ts</br>
+└─ styles.css</br>
+
+</br>
+
+---
+
+## ⚙️ Setup & Installation
+
+### 1️⃣ Clone the repository
 ```bash
-ng serve
+git clone https://github.com/Janaherself/sorpresa-frontend.git
+cd sorpresa-frontend
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### 2️⃣ Install dependencies
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
+### 3️⃣ Run the app
+```
+ng serve --port 4200
+```
+The app will be available at:
+```
+http://localhost:4200
 ```
 
-## Building
+</br>
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🧠 A Small (But Real) Dev Story
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+At one point, the **“Place Order”** button refused to work.
 
-## Running unit tests
+- ✔️ The backend endpoint worked perfectly  
+- ✔️ The request worked in Postman  
+- ❌ The frontend kept failing  
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+After **hours of debugging**, console logging, and questioning life choices…  
+ChatGPT spotted the issue in one prompt, which turned out to be:
 
-```bash
-ng test
-```
+![that error's fix screenshot](assets/when-the-issue-was-finally-found-screenshot.png)
 
-## Running end-to-end tests
+🧩 The API expected one thing, the frontend sent another.  
+Once fixed, everything worked instantly.
 
-For end-to-end (e2e) testing, run:
+**Moral of the story:**  
+> _When Postman works but the UI doesn’t, trust the payload._  
 
-```bash
-ng e2e
-```
+</br>
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 🔒 Authentication Notes
+- JWT token is attached automatically using an HTTP interceptor
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Protected routes (like post api/orders) are secured using route guards
+
+- Guest users can browse products and manage the cart, but must log in to place an order
+
+</br>
+
+--- 
+
+## 🌱 Future Improvements
+- Order history page
+
+- Improved animations
+
+- Payment gateway integration
+
+- Better error & empty states
+
+- Admin dashboard (who kmows 👀)
+
+</br>
+
+--- 
+
+## 🙌 Acknowledgments
+- Built with persistence, debugging, and coffee ☕
+
+- Special thanks to console.log, Postman, Github Copilot, and ChatGPT for being reliable debugging partners
+
+</br>
+
+---
+
+## 🧑‍💻 Author
+Jana Abusaa
+Backend & (Full-Stack Developer) to be!
+
+> If you enjoyed this project or learned something from it — ⭐ the repo!
+
