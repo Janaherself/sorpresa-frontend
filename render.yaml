@@ -3,8 +3,8 @@ services:
     name: sorpresa-frontend
     env: node
     plan: free
-    buildCommand: npm install && npm run build:ssr
-    startCommand: node dist/sorpresa-frontend/server/main.js
+    buildCommand: npm install --include=dev && npm run build
+    startCommand: node dist/sorpresa-frontend/server/server.mjs
     envVars:
       - key: NODE_ENV
         value: production
