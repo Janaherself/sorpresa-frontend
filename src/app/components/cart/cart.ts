@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { AuthService } from '../../services/auth.service';
 import { OrderService } from '../../services/order.service';
+import { CartItem } from '../cart-item/cart-item';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, CartItem],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
@@ -21,6 +22,7 @@ export class Cart {
   paymentMethod: 'cash' | 'card' = 'cash';
 
   cardNumber = '';
+
   cardHolder = '';
   cvv = '';
 
