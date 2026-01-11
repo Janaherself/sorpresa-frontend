@@ -120,6 +120,8 @@ The app will be available at:
 http://localhost:4200
 ```
 
+> _because I'm using a free hosting service, calling the api could take a minute or two - I advise you to be patient 😄_
+
 </br>
 
 ---
